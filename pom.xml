@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>web</groupId>
+	<artifactId>primeiroprojetospring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>primeiroprojetospring</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Versao do Java -->
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+
+		<!-- Versão do Framework Spring -->
+		<spring-framework.version>6.2.2</spring-framework.version>
+
+		<!-- Versão do  SLF4J e log4j2 -->
+		<log4j-slf4j2-impl.version>2.24.3</log4j-slf4j2-impl.version>
+		<log4j-core.version>2.24.3</log4j-core.version>
+		<disruptor.version>4.0.0</disruptor.version>
+
+		<!-- ______________________________________________________________ -->
+		<!-- Arrumação dos problemas causados pelas mudanças a partir do    -->
+		<!-- Java 9 com a remoção do JEE -->
+		<!-- Common Annotations -->
+		<javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+		<!-- ______________________________________________________________ -->
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring-framework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Spring Context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<!-- Loggind usando SLF4J e log4j2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+            <version>${log4j-slf4j2-impl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>		
+		<!-- Para usar loggers assíncronos  -->
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>${disruptor.version}</version>
+		</dependency>
+
+		<!-- ______________________________________________________________ -->
+		<!-- Arrumação dos problemas causados pelas mudanças a partir do    -->
+		<!-- Java 9 com a remoção do JEE -->
+		<!-- Common Annotations -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>${javax.annotation-api.version}</version>
+		</dependency>
+		<!-- ______________________________________________________________ -->
+	</dependencies>
+
+</project>
